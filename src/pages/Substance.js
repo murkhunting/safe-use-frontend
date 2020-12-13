@@ -1,12 +1,38 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
+import axios from "axios";
 
 class Substance extends Component {
+  state = {
+    name: "",
+    type: "",
+    description: "",
+    information: "",
+  };
+
+  componentDidMount() {
+    this.getSubstancece();
+  }
+
+  getSubstancece = () => {
+    const { id } = this.props.match.params;
+    axios
+      .get(`http://localhost:5000/api/learn/${id}`)
+      .then((apiResponse) => {
+        const substance = apiResponse.data;
+        const { name, type, description, information } = substance;
+        this.setState({ name, type, description, information });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div>
-        <h1>Substance Page</h1>
-        <h1>Welcome {this.props.user.username}</h1>
+        <h1>{this.state.name}</h1>
+        <h1>{this.state.type}</h1>
+        <h4>{this.state.description}</h4>
+        <p>{this.state.information}</p>
       </div>
     );
   }
