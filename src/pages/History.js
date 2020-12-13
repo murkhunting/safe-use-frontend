@@ -27,7 +27,7 @@ class History extends Component {
           {listOfExperiences.map((experience) => (
             <div key={experience._id} className="experience">
               <Link to={`/experience/${experience._id}`}>
-                <h3>{experience.substances[0]}</h3>
+                <h3>{experience.substance}</h3>
                 <h4>{experience.date}</h4>
               </Link>
             </div>

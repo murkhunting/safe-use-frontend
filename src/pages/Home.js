@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
-class Home extends Component() {
+class Home extends Component {
   render() {
     const { isLoggedIn } = this.props;
     return (

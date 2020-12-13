@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { withAuth } from "./../lib/Auth";
+import { withAuth } from "../lib/Auth";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-class ExpDetails extends Component {
+class Details extends Component {
   state = {
     substance: "",
     addedsubstances: [],
@@ -56,15 +56,28 @@ class ExpDetails extends Component {
       .catch((err) => console.log(err));
   };
 
+  deleteExperienece = () => {
+    // <== CREATE METHOD
+    const { id } = this.props.match.params;
+
+    axios
+      .delete(`http://localhost:5000/api/experience/${id}`)
+      .then(() => this.props.history.push("/experience")) // causes Router URL change
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div>
         <h1> Experience Details </h1>
         <h2>{this.state.substance}</h2>
         <h2>{this.state.date}</h2>
+        <Link to={"/experience/history"}>
+          <button onClick={this.deleteExperienece}>Delete Experience</button>
+        </Link>
       </div>
     );
   }
 }
 
-export default withAuth(ExpDetails);
+export default withAuth(Details);

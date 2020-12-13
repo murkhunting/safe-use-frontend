@@ -2,38 +2,40 @@ import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 
 class Login extends Component {
-  state = { 
-    username: "", 
-    password: "" 
+  state = {
+    email: "",
+    password: "",
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
-    this.props.login(username, password);
+    this.props.login(email, password);
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
+          <label>Email:</label>
           <input
             type="text"
-            name="username"
-            value={username}
+            name="email"
+            value={email}
             onChange={this.handleChange}
           />
+          <br />
+          <br />
 
           <label>Password:</label>
           <input
@@ -42,6 +44,8 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
+          <br />
+          <br />
 
           <input type="submit" value="Login" />
         </form>
