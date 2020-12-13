@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = { 
+    username: "", 
+    password: "" 
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();

@@ -4,14 +4,13 @@ import { withAuth } from "./../lib/Auth";
 
 class Home extends Component() {
   render() {
-    const { user, logout, isLoggedIn } = this.props;
+    const { isLoggedIn } = this.props;
     return (
       <div>
-        <h1>Home Page</h1>
+        <h1>Safe-Use</h1>
         {isLoggedIn ? (
           <>
-            <p>username: {user.username}</p>
-            <button onClick={logout}>Logout</button>
+            <h3>Are you ready?</h3>
           </>
         ) : (
           <>
