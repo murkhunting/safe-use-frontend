@@ -1,26 +1,26 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <Link to={"/"} id="home-btn">
+        <NavLink to={"/"} id="home-btn">
           <h4>Home</h4>
-        </Link>
-        <Link to={"/experience/history"} id="home-btn">
+        </NavLink>
+        <NavLink to={"/experience/history"} id="home-btn">
           <h4>History</h4>
-        </Link>
-        <Link to={"/experience"} id="home-btn">
+        </NavLink>
+        <NavLink to={"/experience"} id="home-btn">
           <h4>Experience</h4>
-        </Link>
-        <Link to={"/learn"} id="home-btn">
+        </NavLink>
+        <NavLink to={"/learn"} id="home-btn">
           <h4>Learn</h4>
-        </Link>
-        <Link to={"/profile"} id="home-btn">
+        </NavLink>
+        <NavLink to={"/profile"} id="home-btn">
           <h4>Profile</h4>
-        </Link>
+        </NavLink>
       </nav>
     );
   }
