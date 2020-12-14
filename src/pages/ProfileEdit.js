@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { withAuth } from "./../lib/Auth";
+import axios from "axios";
+import { withAuth } from "../lib/AuthProvider";
+
 
 class ProfileEdit extends Component {
   render() {

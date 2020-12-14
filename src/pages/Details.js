@@ -72,6 +72,7 @@ class Details extends Component {
         <h1> Experience Details </h1>
         <h2>{this.state.substance}</h2>
         <h2>{this.state.date}</h2>
+        {/* poner el resto de detalles de la experiencia */}
         <Link to={"/experience/history"}>
           <button onClick={this.deleteExperienece}>Delete Experience</button>
         </Link>
