@@ -148,25 +148,32 @@ class Experience extends Component {
             </select>
           </label>
           <label>
+            <br />
+            <br />
             Select the substance:
             <br />
             <br />
             <select value={substance} onChange={this.handleChange}>
               {/* map por la lista de substancias para poder selecionar el nombre de cada una */}
               {listOfSubstances.map((substance) => (
-                <div key={substance._id} className="substance">
-                  <option value={substance.name}>{substance.name}</option>
-                </div>
+                <option
+                  key={substance._id}
+                  className="substance"
+                  value={substance.name}
+                >
+                  {substance.name}
+                </option>
               ))}
             </select>
           </label>
-          <input type="submit" value="Submit" />
+          <br />
+          <br />
+          <Link to={`/experience/start`}>
+            <input type="submit" value="CONTINUE"></input>
+          </Link>
         </form>
         <br />
         <br />
-        <Link to={`/experience/start`}>
-          <button className="button">CONTINUE</button>
-        </Link>
       </div>
     );
   }

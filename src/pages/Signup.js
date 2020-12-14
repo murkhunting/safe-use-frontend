@@ -10,7 +10,7 @@ class Signup extends Component {
     phoneNumber: undefined,
     weight: undefined,
     age: undefined,
-    pathologies: [],
+    pathologies: "",
   };
 
   handleFormSubmit = (event) => {
@@ -41,7 +41,7 @@ class Signup extends Component {
       phoneNumber: undefined,
       weight: undefined,
       age: undefined,
-      pathologies: [],
+      pathologies: "",
     });
   };
 
@@ -109,14 +109,13 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <label>Pathogies:</label>
-          <input
-            type="pathologies"
-            name="pathologies"
-            value={pathologies}
-            onChange={this.handleChange}
-          />
+          <select value={pathologies} onChange={this.handleChange}>
+            <option value="None">None</option>
+            <option value="Normal">I am Normal</option>
+            <option value="Full">I am Full</option>
+          </select>
 
-          <input type="submit" value="Signup" />
+          <input type="submit" value="Sign Up" />
         </form>
 
         <p>Already have an account?</p>
