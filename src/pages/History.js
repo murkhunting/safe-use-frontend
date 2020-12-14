@@ -11,7 +11,7 @@ class History extends Component {
 
   componentDidMount() {
     axios
-      .get(`http:/localhost:5000/api/experience/history`)
+      .get(`http://localhost:5000/api/experience/history`)
       .then((apiResponse) => {
         this.setState({ listOfExperiences: apiResponse.data });
       });

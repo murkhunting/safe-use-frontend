@@ -8,7 +8,7 @@ class Profile extends Component {
     return (
       <div>
         <h1>Profile</h1>
-        <h1>{this.props.user.username}</h1>
+        <h1>{user.username}</h1>
 
         <div className="user-info">
           <h2 className="username">{user.username}</h2>

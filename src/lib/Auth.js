@@ -3,45 +3,22 @@ import authService from "./auth-service"; // IMPORT functions for axios requests
 const { Consumer, Provider } = React.createContext();
 
 // HOC to create a Consumer
-const withAuth = (WrappedComponent) => {
-  return class extends React.Component {
-    render() {
-      return (
-        <Consumer>
-          {({ login, signup, logout, user, isLoggedIn }) => {
-            return (
-              <WrappedComponent
-                user={user}
-                isLoggedIn={isLoggedIn}
-                login={login}
-                signup={signup}
-                logout={logout}
-                {...this.props}
-              />
-            );
-          }}
-        </Consumer>
-      );
-    }
-  };
-};
-
 
 // Provider
 class AuthProvider extends React.Component {
   state = {
     isLoggedIn: false,
     user: null,
-    isLoading: true
+    isLoading: true,
   };
 
   componentDidMount() {
     authService
       .me()
-      .then((user) =>{
-        this.setState({ isLoggedIn: true, user: user, isLoading: false })
+      .then((user) => {
+        this.setState({ isLoggedIn: true, user: user, isLoading: false });
       })
-      .catch(err =>
+      .catch((err) =>
         this.setState({ isLoggedIn: false, user: null, isLoading: false })
       );
   }
@@ -66,25 +43,41 @@ class AuthProvider extends React.Component {
     }
   }
 
-  signup = (email, password) => {
+  signup = (
+    username,
+    password,
+    email,
+    phoneNumber,
+    weight,
+    age,
+    pathologies
+  ) => {
     authService
-      .signup({ email, password })
-      .then(user => this.setState({ isLoggedIn: true, user }))
-      .catch(err => console.log(err));
+      .signup({
+        username,
+        password,
+        email,
+        phoneNumber,
+        weight,
+        age,
+        pathologies,
+      })
+      .then((user) => this.setState({ isLoggedIn: true, user }))
+      .catch((err) => console.log(err));
   };
 
   login = (email, password) => {
     authService
       .login({ email, password })
-      .then(user => this.setState({ isLoggedIn: true, user }))
-      .catch(err => console.log(err));
+      .then((user) => this.setState({ isLoggedIn: true, user }))
+      .catch((err) => console.log(err));
   };
 
   logout = () => {
     authService
       .logout()
       .then(() => this.setState({ isLoggedIn: false, user: null }))
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -99,10 +92,33 @@ class AuthProvider extends React.Component {
       </Provider>
     );
     /*
-      <Provider> `value={}` data will be available to all <Consumer> components 
+    <Provider> `value={}` data will be available to all <Consumer> components 
     */
   }
 }
+
+const withAuth = (WrappedComponent) => {
+  return class extends React.Component {
+    render() {
+      return (
+        <Consumer>
+          {({ login, signup, logout, user, isLoggedIn }) => {
+            return (
+              <WrappedComponent
+                user={user}
+                isLoggedIn={isLoggedIn}
+                login={login}
+                signup={signup}
+                logout={logout}
+                {...this.props}
+              />
+            );
+          }}
+        </Consumer>
+      );
+    }
+  };
+};
 
 export { withAuth, AuthProvider };
 

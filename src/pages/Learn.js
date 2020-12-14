@@ -10,10 +10,17 @@ class Learn extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http:/localhost:5000/api/learn`).then((apiResponse) => {
-      this.setState({ listOfSubstances: apiResponse.data });
-    });
+    this.getAllSubstances();
   }
+
+  getAllSubstances = () => {
+    axios
+      .get("http://localhost:5000/api/learn", { withCredentials: true })
+      .then((apiResponse) => {
+        console.log("apiResponse", apiResponse);
+        this.setState({ listOfSubstances: apiResponse.data });
+      });
+  };
 
   render() {
     const { listOfSubstances } = this.state;
@@ -24,7 +31,10 @@ class Learn extends Component {
         <div>
           {listOfSubstances.map((substance) => (
             <div key={substance._id} className="substance">
-              <Link to={`/learn/${substance._id}`}>
+              <Link
+                to={`/learn/${substance._id}`}
+                getAllSubstances={this.getAllSubstances}
+              >
                 <h3>{substance.name}</h3>
                 <h4>{substance.type}</h4>
                 <p>{substance.description}</p>

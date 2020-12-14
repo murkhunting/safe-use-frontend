@@ -37,6 +37,11 @@ class Signup extends Component {
     this.setState({
       username: "",
       password: "",
+      email: "",
+      phoneNumber: undefined,
+      weight: undefined,
+      age: undefined,
+      pathologies: [],
     });
   };
 

@@ -16,7 +16,7 @@ class Experience extends Component {
 
   //Get de toda la lista de substancias
   componentDidMount() {
-    axios.get(`http:/localhost:5000/api/learn`).then((apiResponse) => {
+    axios.get("http://localhost:5000/api/experience").then((apiResponse) => {
       this.setState({ listOfSubstances: apiResponse.data });
     });
   }
@@ -89,6 +89,8 @@ class Experience extends Component {
             </select>
           </label>
           <label>
+            <br />
+            <br />
             How is your mood?
             <br />
             <br />
@@ -104,6 +106,8 @@ class Experience extends Component {
             </select>
           </label>
           <label>
+            <br />
+            <br />
             What is your intention?
             <br />
             <br />
@@ -119,6 +123,8 @@ class Experience extends Component {
             </select>
           </label>
           <label>
+            <br />
+            <br />
             Frequency of use?
             <br />
             <br />
@@ -130,6 +136,8 @@ class Experience extends Component {
             </select>
           </label>
           <label>
+            <br />
+            <br />
             Have you eaten?
             <br />
             <br />
