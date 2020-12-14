@@ -15,7 +15,6 @@ class ProfileEdit extends Component {
   };
 
   handleFormSubmit = (event) => {
-    event.preventDefault();
     const {
       username,
       password,
@@ -26,16 +25,22 @@ class ProfileEdit extends Component {
       pathologies,
     } = this.state;
 
+    event.preventDefault();
+
     axios
-      .put("http://localhost:5000/api/profile/edit", {
-        username,
-        password,
-        email,
-        phoneNumber,
-        weight,
-        age,
-        pathologies,
-      })
+      .put(
+        "http://localhost:5000/api/profile/edit",
+        {
+          username,
+          password,
+          email,
+          phoneNumber,
+          weight,
+          age,
+          pathologies,
+        },
+        { withCredentials: true }
+      )
       .then(() => {
         this.props.history.push("/profile");
       });
