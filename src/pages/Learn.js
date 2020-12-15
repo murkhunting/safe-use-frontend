@@ -15,7 +15,9 @@ class Learn extends Component {
 
   getAllSubstances = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URI}/api/learn`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/learn`, {
+        withCredentials: true,
+      })
       .then((apiResponse) => {
         console.log("apiResponse", apiResponse);
         this.setState({ listOfSubstances: apiResponse.data });
@@ -31,10 +33,7 @@ class Learn extends Component {
         <div>
           {listOfSubstances.map((substance) => (
             <div key={substance._id} className="substance">
-              <Link
-                to={`/learn/${substance._id}`}
-                getAllSubstances={this.getAllSubstances}
-              >
+              <Link to={`/learn/${substance._id}`}>
                 <h3>{substance.name}</h3>
                 <h4>{substance.type}</h4>
                 <p>{substance.description}</p>

@@ -11,7 +11,7 @@ class History extends Component {
 
   componentDidMount() {
     axios
-      .get(`${process.env.REACT_APP_API_URI}/api/experience/history`)
+      .get(`${process.env.REACT_APP_API_URL}/api/experience/history`)
       .then((apiResponse) => {
         this.setState({ listOfExperiences: apiResponse.data });
       });
