@@ -7,5 +7,6 @@
   overflow: hidden;
   left: 0px;
   border-top: solid rgb(163, 163, 163) 0.3px;
-
+  display: flex;
+  text-align: center;
 }

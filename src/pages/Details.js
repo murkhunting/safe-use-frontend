@@ -25,7 +25,7 @@ class Details extends Component {
     const { id } = this.props.match.params;
 
     axios
-      .get(`http://localhost:5000/api/experience/${id}`)
+      .get(`${process.env.REACT_APP_API_URI}/api/experience/${id}`)
       .then((apiResponse) => {
         const experience = apiResponse.data;
         const {
@@ -61,7 +61,7 @@ class Details extends Component {
     const { id } = this.props.match.params;
 
     axios
-      .delete(`http://localhost:5000/api/experience/${id}`)
+      .delete(`${process.env.REACT_APP_API_URI}/api/experience/${id}`)
       .then(() => this.props.history.push("/experience")) // causes Router URL change
       .catch((err) => console.log(err));
   };

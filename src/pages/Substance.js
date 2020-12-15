@@ -17,7 +17,7 @@ class Substance extends Component {
   getSubstancece = () => {
     const { id } = this.props.match.params;
     axios
-      .get(`http://localhost:5000/api/learn/${id}`)
+      .get(`${process.env.REACT_APP_API_URI}/api/learn/${id}`)
       .then((apiResponse) => {
         const substance = apiResponse.data;
         const { name, type, description, information } = substance;

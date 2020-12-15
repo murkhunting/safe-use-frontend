@@ -43,16 +43,8 @@ class ProfileEdit extends Component {
       )
       .then(() => {
         this.props.history.push("/profile");
-      });
-    this.setState({
-      username: "",
-      password: "",
-      email: "",
-      phoneNumber: undefined,
-      weight: undefined,
-      age: undefined,
-      pathologies: "",
-    });
+      })
+      .catch((err) => console.log(err));
   };
 
   handleChange = (event) => {
@@ -62,7 +54,7 @@ class ProfileEdit extends Component {
 
   deleteUser = () => {
     axios
-      .delete("http://localhost:5000/api/profile/edit")
+      .delete(`${process.env.REACT_APP_API_URI}/api/profile/edit`)
       .then(() => this.props.history.push("/")) // causes Router URL change
       .catch((err) => console.log(err));
   };

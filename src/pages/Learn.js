@@ -15,7 +15,7 @@ class Learn extends Component {
 
   getAllSubstances = () => {
     axios
-      .get("http://localhost:5000/api/learn", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URI}/api/learn`, { withCredentials: true })
       .then((apiResponse) => {
         console.log("apiResponse", apiResponse);
         this.setState({ listOfSubstances: apiResponse.data });

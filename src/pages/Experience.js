@@ -16,7 +16,7 @@ class Experience extends Component {
 
   //Get de toda la lista de substancias
   componentDidMount() {
-    axios.get("http://localhost:5000/api/experience").then((apiResponse) => {
+    axios.get(`${process.env.REACT_APP_API_URI}/api/experience`).then((apiResponse) => {
       this.setState({ listOfSubstances: apiResponse.data });
     });
   }
@@ -39,7 +39,7 @@ class Experience extends Component {
     } = this.state;
 
     axios
-      .post("http://localhost:5000/api/experience", {
+      .post(`${process.env.REACT_APP_API_URI}/api/experience`, {
         emotionStatus,
         moodStatus,
         intention,
