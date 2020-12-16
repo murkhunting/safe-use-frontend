@@ -29,13 +29,13 @@ class Learn extends Component {
 
     return (
       <div>
-        <h1>Learn about the Substances</h1>
+        <h1>The most important info about the Substances</h1>
         <div>
           {listOfSubstances.map((substance) => (
-            <div key={substance._id} className="substance">
-              <Link to={`/learn/${substance._id}`}>
+            <div key={substance._id} className="substance-box">
+              <Link className= "substance" to={`/learn/${substance._id}`}>
                 <h3>{substance.name}</h3>
-                <h4>{substance.type}</h4>
+                <h4>{substance.type} substance</h4>
                 <p>{substance.description}</p>
               </Link>
             </div>

@@ -1,8 +1,17 @@
 html,
 body {
+  font-family: "Red Hat Text", sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: rgb(38, 38, 38);
+  color: white;
+  text-decoration: none;
+}
+
+.substance {
+  text-decoration: none;
+  color: white;
 }
 
 .App {

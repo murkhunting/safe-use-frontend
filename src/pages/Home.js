@@ -1,12 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
+import ReactStopwatch from "react-stopwatch";
 
 class Home extends Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
       <div>
+
+        <ReactStopwatch
+          seconds={0}
+          minutes={0}
+          hours={0}
+          onChange={({ hours, minutes, seconds }) => {
+            // do something
+          }}
+          onCallback={() => console.log("Finish")}
+          render={({ formatted, hours, minutes, seconds }) => {
+            return (
+              <div>
+                <h2>{formatted}</h2>
+               
+              </div>
+            );
+          }}
+        />
+
         <h1>Safe-Use</h1>
         {isLoggedIn ? (
           <>

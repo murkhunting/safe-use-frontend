@@ -109,10 +109,12 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <label>Pathogies:</label>
-          <select value={pathologies} onChange={this.handleChange}>
+          <select
+            name="pathologies"
+        
+            onChange={this.handleChange}
+          >
             <option value="None">None</option>
-            <option value="Normal">I am Normal</option>
-            <option value="Full">I am Full</option>
           </select>
 
           <input type="submit" value="Sign Up" />

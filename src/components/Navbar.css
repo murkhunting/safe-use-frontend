@@ -1,6 +1,8 @@
 .navbar {
+  font-family: "Red Hat Text", sans-serif;
   z-index: 1;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(38, 38, 38);
+  color: white;
   position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
   width: 100%;
   bottom: 0;
@@ -8,5 +10,12 @@
   left: 0px;
   border-top: solid rgb(163, 163, 163) 0.3px;
   display: flex;
-  text-align: center;
+  justify-content: center;
+}
+
+.navbar-btn {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  
 }

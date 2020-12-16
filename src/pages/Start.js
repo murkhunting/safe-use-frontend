@@ -1,22 +1,64 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
-// import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 class Start extends Component {
-    render() {
-      return (
-        <div>
-          <h1>Start Page</h1>
-          <h1>Welcome {this.props.user.username}</h1>
-          <br />
-          <br />
-          <Link to={`/experience/track`}>
-            <input type="submit" value="START"></input>
-          </Link>
-        </div>
-      );
-    }
+  state = {
+    substance: {},
+    emotionStatus: "",
+    moodStatus: "",
+    userexperience: "",
+  };
+
+  componentDidMount() {
+    this.getExperience();
   }
-  
-  export default withAuth(Start);
+
+  getExperience = () => {
+    const { id } = this.props.match.params;
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/experience/start/${id}`)
+      .then((apiResponse) => {
+        const experience = apiResponse.data;
+        const {
+          substance,
+          emotionStatus,
+          moodStatus,
+          userexperience,
+        } = experience;
+        this.setState({ substance, emotionStatus, moodStatus, userexperience });
+      })
+      .catch((err) => console.log(err));
+  };
+  render() {
+    const { id } = this.props.match.params;
+    const { substance, emotionStatus, moodStatus, userexperience } = this.state;
+    return (
+      <div>
+        <h2>Selected substance: {substance.name}</h2>
+        <h3>Warnings!!:</h3>
+        <h3>
+          After having analyzed your answers and your personal data, from
+          Safe-Use we recommend the following:
+        </h3>
+        <h3>Never take more than this dose:</h3>
+        <p>
+          Before starting, if you have not visited it previously, we advise you
+          to go to the
+        </p>
+        <Link to={`/learn`}>Learn Page</Link>
+        <br />
+        <br />
+        <Link to={`/experience/track/${id}`}>
+          <button type="submit" value="START">
+            {" "}
+            START
+          </button>
+        </Link>
+      </div>
+    );
+  }
+}
+
+export default withAuth(Start);
