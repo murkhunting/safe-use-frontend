@@ -1,7 +1,7 @@
 .navbar {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: "Futura", sans-serif;
   z-index: 1;
-  background-color: rgb(38, 38, 38);
+  background-color: #272727;
   color: white;
   position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
   width: 100%;
@@ -13,9 +13,36 @@
   justify-content: center;
 }
 
+h1{
+  color: #ba905a;
+  margin-top: 7vh;
+}
 .navbar-btn {
   color: white;
   text-decoration: none;
   margin: 10px;
-  
+}
+.navbar-selected {
+  color: #ba905a;
+  text-decoration: none;
+  margin: 10px;
+}
+.navbar-icon {
+  height: 10vh;
+  min-height: 25px;
+  max-height: 40px;
+  border-radius: 25%;
+  padding: 0.3vh;
+}
+
+.navbar-mainicon {
+  height: 10vh;
+  min-height: 25px;
+  max-height: 65px;
+  border-radius: 25%;
+  padding: 0.3vh;
+}
+
+.nav-text{
+  font-size: 1.5vh;
 }

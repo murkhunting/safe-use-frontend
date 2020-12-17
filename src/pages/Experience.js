@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class Experience extends Component {
   state = {
@@ -75,18 +74,15 @@ class Experience extends Component {
       // intention,
       // userexperience,
       // eatStatus,
-      substance,
+      // substance,
     } = this.state;
 
     return (
-      <div>
-        <h4>Before starting we need some information about you</h4>
+      <div className="siempre">
+        <h1>Experience</h1>
+        <h5>Before starting we need some information about you</h5>
         <form onSubmit={this.handleFormSubmit}>
-          <label>
-            How do you feel?
-            <br />
-            <br />
-          </label>
+          <label>How do you feel?</label>
           <select name="emotionStatus" onChange={this.handleChange}>
             <option value="Much Better">Much better than usual</option>
             <option value="Better">Better than usual</option>
@@ -94,16 +90,10 @@ class Experience extends Component {
             <option value="Worse">Worse than usual</option>
             <option value="Much Worse">Much worse than usual</option>
           </select>
-          <label>
-            <br />
-            <br />
-            How is your mood?
-            <br />
-            <br />
-          </label>
+          <label>How is your mood?</label>
           <select name="moodStatus" onChange={this.handleChange}>
             <option value="Calm">Calm</option>
-            <option value="Enrgized">Enrgized</option>
+            <option value="Energized">Energized</option>
             <option value="Confident">Confident</option>
             <option value="Fearful">Fearful</option>
             <option value="Tense">Tense</option>
@@ -111,13 +101,7 @@ class Experience extends Component {
             <option value="Sad">Sad</option>
             <option value="Depressed">Depressed</option>
           </select>
-          <label>
-            <br />
-            <br />
-            What is your intention?
-            <br />
-            <br />
-          </label>
+          <label>What is your intention?</label>
           <select name="intention" onChange={this.handleChange}>
             <option value="Discover">Discover</option>
             <option value="Grow">Grow</option>
@@ -128,38 +112,20 @@ class Experience extends Component {
             <option value="Relax">Relax</option>
             <option value="Activate">Activate</option>
           </select>
-          <label>
-            <br />
-            <br />
-            Frequency of use?
-            <br />
-            <br />
-          </label>
+          <label>Frequency of use?</label>
           <select name="userexperience" onChange={this.handleChange}>
             <option value="First Time">First Time</option>
             <option value="Occasionally">Occasionally</option>
             <option value="Often">Often</option>
             <option value="Habitually">Habitually</option>
           </select>
-          <label>
-            <br />
-            <br />
-            Have you eaten?
-            <br />
-            <br />
-          </label>
+          <label>Have you eaten?</label>
           <select name="eatStatus" onChange={this.handleChange}>
             <option value="Empty">I am Empty</option>
             <option value="Normal">I am Normal</option>
             <option value="Full">I am Full</option>
           </select>
-          <label>
-            <br />
-            <br />
-            Select the substance:
-            <br />
-            <br />
-          </label>
+          <label>Select the substance:</label>
           <select name="substance" onChange={this.handleChange}>
             {/* map por la lista de substancias para poder selecionar el nombre de cada una */}
             {listOfSubstances.map((substance) => (
@@ -172,13 +138,10 @@ class Experience extends Component {
               </option>
             ))}
           </select>
-          <br />
-          <br />
+
           {/* como sacar el id de la experience que acabo de crear arriba */}
           <button type="submit">CONTINUE</button>
         </form>
-        <br />
-        <br />
       </div>
     );
   }

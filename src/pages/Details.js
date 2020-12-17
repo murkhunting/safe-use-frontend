@@ -25,7 +25,7 @@ class Details extends Component {
     const { id } = this.props.match.params;
 
     axios
-      .get(`${process.env.REACT_APP_API_URI}/api/experience/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/experience/${id}`)
       .then((apiResponse) => {
         const experience = apiResponse.data;
         const {
@@ -61,7 +61,7 @@ class Details extends Component {
     const { id } = this.props.match.params;
 
     axios
-      .delete(`${process.env.REACT_APP_API_URI}/api/experience/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/experience/${id}`)
       .then(() => this.props.history.push("/experience")) // causes Router URL change
       .catch((err) => console.log(err));
   };
@@ -70,8 +70,8 @@ class Details extends Component {
     return (
       <div>
         <h1> Experience Details </h1>
-        <h2>{this.state.substance}</h2>
-        <h2>{this.state.date}</h2>
+        <h2>{this.state.substance.name}</h2>
+
         {/* poner el resto de detalles de la experiencia */}
         <Link to={"/experience/history"}>
           <button onClick={this.deleteExperienece}>Delete Experience</button>

@@ -1,23 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { withAuth } from "../lib/Auth";
 
 class ProfileEdit extends Component {
   state = {
-    username: "",
-    password: "",
-    email: "",
-    phoneNumber: undefined,
-    weight: undefined,
-    age: undefined,
+    username: this.props.user.username,
+    email: this.props.user.email,
+    phoneNumber: this.props.user.phoneNumber,
+    weight: this.props.user.weight,
+    age: this.props.user.age,
     pathologies: "",
   };
 
   handleFormSubmit = (event) => {
     const {
       username,
-      password,
       email,
       phoneNumber,
       weight,
@@ -28,16 +25,16 @@ class ProfileEdit extends Component {
     event.preventDefault();
 
     axios
-      .put(
+      .post(
         "http://localhost:5000/api/profile/edit",
         {
           username,
-          password,
           email,
           phoneNumber,
           weight,
           age,
           pathologies,
+          user: this.props.user._id,
         },
         { withCredentials: true }
       )
@@ -60,18 +57,10 @@ class ProfileEdit extends Component {
   };
 
   render() {
-    const {
-      username,
-      password,
-      email,
-      phoneNumber,
-      weight,
-      age,
-      pathologies,
-    } = this.state;
+    const { username, email, phoneNumber, weight, age } = this.state;
 
     return (
-      <div>
+      <div className="siempre">
         <h1>Edit Profile</h1>
 
         <form onSubmit={this.handleFormSubmit}>
@@ -80,14 +69,7 @@ class ProfileEdit extends Component {
             type="text"
             name="username"
             value={username}
-            onChange={this.handleChange}
-          />
-
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
+            placeholder="hello"
             onChange={this.handleChange}
           />
           <label>Email:</label>
@@ -118,18 +100,20 @@ class ProfileEdit extends Component {
             value={age}
             onChange={this.handleChange}
           />
+
           <label>Pathogies:</label>
-          <select value={pathologies} onChange={this.handleChange}>
+          <select name="pathologies" onChange={this.handleChange}>
             <option value="None">None</option>
-            <option value="Normal">I am Normal</option>
-            <option value="Full">I am Full</option>
+            <option value="None">None</option>
+            <option value="None">None</option>
           </select>
 
           <input type="submit" value="Save Changes" />
+          
+
         </form>
-        <Link to={"/"}>
-          <button onClick={this.deleteUser}>Delete Account</button>
-        </Link>
+        <button onClick={this.deleteUser}>Delete Account</button>
+
       </div>
     );
   }

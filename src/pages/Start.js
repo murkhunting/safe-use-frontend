@@ -38,6 +38,7 @@ class Start extends Component {
       <div>
         <h2>Selected substance: {substance.name}</h2>
         <h3>Warnings!!:</h3>
+        
         <h3>
           After having analyzed your answers and your personal data, from
           Safe-Use we recommend the following:
@@ -50,12 +51,7 @@ class Start extends Component {
         <Link to={`/learn`}>Learn Page</Link>
         <br />
         <br />
-        <Link to={`/experience/track/${id}`}>
-          <button type="submit" value="START">
-            {" "}
-            START
-          </button>
-        </Link>
+        <Link to={`/experience/track/${id}`}>START</Link>
       </div>
     );
   }

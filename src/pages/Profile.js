@@ -7,20 +7,30 @@ class Profile extends Component {
     const { user, logout } = this.props;
     console.log("user", user);
     return (
-      <div>
-        <h1>Profile</h1>
-        <h1>{user.username}</h1>
+      <div className="siempre">
+        <h1>Safe User {user.username}</h1>
 
         <div className="user-info">
-          <h2 className="username">{user.email}</h2>
-          <h2 className="username">{user.phoneNumber}</h2>
+          <h3 className="username">{user.weight} kg</h3>
+          <h3 className="username">{user.age} yo</h3>
+          <h3 className="username">{user.pathologies}</h3>
+          <h3 className="username">{user.phoneNumber}</h3>
+          <h3 className="username">{user.email}</h3>
           <Link to={`/profile/edit`}>
-            <button className="profile-edit-btn">Edit</button>
-          </Link>
-          <Link to={"/"}>
-            <button onClick={logout}>Log Out</button>
+            <img
+              className="edit-icon"
+              alt="profile"
+              src="./../images/setting.png"
+            />
           </Link>
         </div>
+          <Link to={"/"}>
+            <img
+              className="edit-icon"
+              alt="profile"
+              src="./../images/logout.png"
+            />
+          </Link>
       </div>
     );
   }

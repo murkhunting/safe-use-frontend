@@ -1,39 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
-import ReactStopwatch from "react-stopwatch";
 
 class Home extends Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
       <div>
-
-        <ReactStopwatch
-          seconds={0}
-          minutes={0}
-          hours={0}
-          onChange={({ hours, minutes, seconds }) => {
-            // do something
-          }}
-          onCallback={() => console.log("Finish")}
-          render={({ formatted, hours, minutes, seconds }) => {
-            return (
-              <div>
-                <h2>{formatted}</h2>
-               
-              </div>
-            );
-          }}
+        <img
+          className="home-logo"
+          alt="experience"
+          src="../images/Safeuse.png"
         />
 
-        <h1>Safe-Use</h1>
         {isLoggedIn ? (
           <>
-            <h3>Are you ready?</h3>
+            <h3>Life can be toxic enough</h3>
+            <h3>Mind your health</h3>
+            <h5>
+              The mission of Safe-Use is to provide education to PREVENT DRUGS
+              ABUSE. As well as SAFETY and a quick access to INFORMATION and
+              SUPPORT for people having a challenging experience.
+            </h5>
           </>
         ) : (
           <>
+            <h3>Life can be toxic enough</h3>
+            <h3>Mind your health</h3>
             <Link to="/login">
               {" "}
               <button className="navbar-button">Login</button>{" "}

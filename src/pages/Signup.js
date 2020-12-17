@@ -58,7 +58,6 @@ class Signup extends Component {
       phoneNumber,
       weight,
       age,
-      pathologies,
     } = this.state;
     return (
       <div>
@@ -109,11 +108,9 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <label>Pathogies:</label>
-          <select
-            name="pathologies"
-        
-            onChange={this.handleChange}
-          >
+          <select name="pathologies" onChange={this.handleChange}>
+            <option value="None">None</option>
+            <option value="None">None</option>
             <option value="None">None</option>
           </select>
 
