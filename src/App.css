@@ -92,12 +92,12 @@ form {
 }
 
 .siempre {
-  margin-bottom: 40vh;
+  margin-bottom: 30vh;
 }
 
 .user-info {
   background-color: black;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   margin-top: 5px;
   margin-left: 30px;
   margin-right: 30px;
@@ -133,4 +133,28 @@ form {
 
 .history-img {
   height: 20vh;
+}
+button {
+  background-color: #ba905a;
+  border: solid 1px white;
+  border-radius: 6%;
+  padding: 5px;
+  margin: 20px 80px;
+}
+
+.input-btn {
+  background-color: #ba905a;
+  border: solid 1px white;
+  border-radius: 6%;
+  padding: 5px;
+  margin: 10px;
+  width: 15vh;
+}
+
+.timer {
+  background-color: #272727;
+  border: solid 1px #ba905a;
+  border-radius: 6%;
+  padding-bottom: 8%;
+  margin: 10px;
 }

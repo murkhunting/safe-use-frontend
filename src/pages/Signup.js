@@ -62,6 +62,7 @@ class Signup extends Component {
             type="text"
             name="username"
             value={username}
+            placeholder="Choose your Username"
             onChange={this.handleChange}
           />
 
@@ -70,6 +71,7 @@ class Signup extends Component {
             type="password"
             name="password"
             value={password}
+            placeholder="******"
             onChange={this.handleChange}
           />
           <label>Email:</label>
@@ -77,6 +79,7 @@ class Signup extends Component {
             type="email"
             name="email"
             value={email}
+            placeholder="Enter your email"
             onChange={this.handleChange}
           />
           <label>Phone Number:</label>
@@ -84,6 +87,7 @@ class Signup extends Component {
             type="phoneNumber"
             name="phoneNumber"
             value={phoneNumber}
+            placeholder="Enter your phone number"
             onChange={this.handleChange}
           />
           <label>Weight:</label>
@@ -91,6 +95,7 @@ class Signup extends Component {
             type="weight"
             name="weight"
             value={weight}
+            placeholder="Enter your weight"
             onChange={this.handleChange}
           />
           <label>Age:</label>
@@ -99,6 +104,7 @@ class Signup extends Component {
             name="age"
             value={age}
             onChange={this.handleChange}
+            placeholder="Enter your age"
           />
           <label>Pathogies:</label>
           <select name="pathologies" onChange={this.handleChange}>
@@ -107,7 +113,7 @@ class Signup extends Component {
             <option value="None">None</option>
           </select>
 
-          <input type="submit" value="Sign Up" />
+          <button type="submit">SIGN UP</button>
         </form>
 
         <p>Already have an account?</p>

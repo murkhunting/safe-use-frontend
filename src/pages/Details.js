@@ -85,9 +85,8 @@ class Details extends Component {
           <h4>I had my belly: {eatStatus}</h4>
           <h4>My intention was: {intention}</h4>
           <h4>My frequency using was: {userexperience}</h4>
+          <button onClick={this.deleteExperienece}>Delete Experience</button>
         </div>
-
-        <button onClick={this.deleteExperienece}>Delete Experience</button>
       </div>
     );
   }

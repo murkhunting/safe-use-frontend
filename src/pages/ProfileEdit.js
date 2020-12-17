@@ -108,12 +108,9 @@ class ProfileEdit extends Component {
             <option value="None">None</option>
           </select>
 
-          <input type="submit" value="Save Changes" />
-          
-
-        </form>
+          <button type="submit"> Save Changes</button>
         <button onClick={this.deleteUser}>Delete Account</button>
-
+        </form>
       </div>
     );
   }

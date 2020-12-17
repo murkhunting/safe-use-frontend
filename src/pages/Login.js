@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../lib/Auth";
 
@@ -22,6 +22,7 @@ class Login extends Component {
 
   render() {
     const { email, password } = this.state;
+    // const [error] = useState("");
 
     return (
       <div>
@@ -33,6 +34,7 @@ class Login extends Component {
             type="text"
             name="email"
             value={email}
+            placeholder="Enter your email"
             onChange={this.handleChange}
           />
 
@@ -41,14 +43,26 @@ class Login extends Component {
             type="password"
             name="password"
             value={password}
+            placeholder="******"
             onChange={this.handleChange}
           />
 
-          <input type="submit" value="Login" />
+          <button type="submit">LOGIN</button>
           <p>if you don't have an account yet</p>
           <Link to={"/signup"}>
             <h4>Sign up</h4>
           </Link>
+          {/* <div>
+            {error.includes("401") ? (
+              <p style={{ color: "#ba905a" }}>
+              Wrong password, try again!</p>
+            ) : null}
+            {error.includes("404") ? (
+              <p style={{ color: "#ba905a" }}>
+                Seems that this email doesn't exist!
+              </p>
+            ) : null}
+          </div> */}
         </form>
       </div>
     );

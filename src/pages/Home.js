@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
-      <div>
+      <div className="siempre">
         <img
           className="home-logo"
           alt="experience"
@@ -28,13 +28,11 @@ class Home extends Component {
             <h3>Life can be toxic enough</h3>
             <h3>Mind your health</h3>
             <Link to="/login">
-              {" "}
-              <button className="navbar-button">Login</button>{" "}
+              <button className="input-btn">LOGIN</button>
             </Link>
             <br />
             <Link to="/signup">
-              {" "}
-              <button className="navbar-button">Sign Up</button>{" "}
+              <button className="input-btn">SIGN UP</button>
             </Link>
           </>
         )}

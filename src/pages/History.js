@@ -21,14 +21,17 @@ class History extends Component {
     const { listOfExperiences } = this.state;
 
     return (
-      <div>
+      <div className="siempre">
         <h1>Experiences History</h1>
         <div>
           {listOfExperiences.map((experience) => (
             <div key={experience._id} className="experience">
               <Link to={`/experience/${experience._id}`}>
                 <div className="card">
-                  <h3>{experience.substance && experience.substance.name} - 17/12/2020</h3>
+                  <h3>
+                    {experience.substance && experience.substance.name} -
+                    17/12/2020
+                  </h3>
                   <img
                     className="history-img"
                     alt="profile"

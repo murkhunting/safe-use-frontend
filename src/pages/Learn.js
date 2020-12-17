@@ -29,7 +29,7 @@ class Learn extends Component {
 
     return (
       <div className="siempre">
-        <h1>Learn</h1>
+        <h1>Substances</h1>
         <div>
           {listOfSubstances.map((substance) => (
             <div key={substance._id} className="substance-box">

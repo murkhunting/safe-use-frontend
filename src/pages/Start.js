@@ -37,29 +37,31 @@ class Start extends Component {
     return (
       <div className="siempre">
         <h1>Substance: {substance.name}</h1>
-        
-        <h3>Warnings!!:</h3>
 
-        <p>
-          Before starting, if you have not visited it previously, we advise you
-          to go to the
-        </p>
-        <Link to={`/learn`}>
-          <h4>Learn Page</h4>
-        </Link>
-        <h3>
-          Analizyng your answers and your personal data, from Safe-Use we
-          recommend the following
-        </h3>
-        <p>you should take this dose:</p>
-        <h3>{substance.dose} </h3>
-        <p>Never take more than this dose: {substance.maxdose}</p>
-        <h3>{substance.maxdose}</h3>
-        <h3>Are you sure you want to continue with the experience?</h3>
+        <div className="user-info">
+          <h3>Warnings!!:</h3>
+
+          <p>
+            Before starting, if you have not visited it previously, we advise
+            you to go to the
+          </p>
+          <Link to={`/learn`}>
+            <h4>Learn Page</h4>
+          </Link>
+          <h3>
+            Analizyng your answers and your personal data, from Safe-Use we
+            recommend the following
+          </h3>
+          <p>you should take this dose:</p>
+          <h3>{substance.dose} </h3>
+          <p>Never take more than this dose: {substance.maxdose}</p>
+          <h3>{substance.maxdose}</h3>
+          <h3>Are you sure you want to continue with the experience?</h3>
 
         <Link to={`/experience/track/${id}`}>
-          <button>START</button>
+          <button className="input-btn">START</button>
         </Link>
+        </div>
       </div>
     );
   }
