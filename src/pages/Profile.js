@@ -11,11 +11,21 @@ class Profile extends Component {
         <h1>Safe User {user.username}</h1>
 
         <div className="user-info">
-          <h3 className="username">{user.weight} kg</h3>
-          <h3 className="username">{user.age} yo</h3>
-          <h3 className="username">{user.pathologies}</h3>
-          <h3 className="username">{user.phoneNumber}</h3>
-          <h3 className="username">{user.email}</h3>
+          <h4 className="username">{user.weight} kg</h4>
+          <h4 className="username">{user.age} yo</h4>
+          <h4 className="username">{user.pathologies}</h4>
+          <h4 className="username">{user.phoneNumber}</h4>
+          <h4 className="username">{user.email}</h4>
+          <Link to={"/"}>
+          <span onClick={logout} clasName="transparent">
+            
+            <img
+              className="edit-icon"
+              alt="profile"
+              src="./../images/logout.png"
+            />
+          </span>
+          </Link>
           <Link to={`/profile/edit`}>
             <img
               className="edit-icon"
@@ -24,13 +34,6 @@ class Profile extends Component {
             />
           </Link>
         </div>
-          <Link to={"/"}>
-            <img
-              className="edit-icon"
-              alt="profile"
-              src="./../images/logout.png"
-            />
-          </Link>
       </div>
     );
   }

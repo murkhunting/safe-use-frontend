@@ -28,16 +28,20 @@ class Learn extends Component {
     const { listOfSubstances } = this.state;
 
     return (
-      <div>
-        <h1>Learn about the Substances</h1>
+      <div className="siempre">
+        <h1>Learn</h1>
         <div>
           {listOfSubstances.map((substance) => (
             <div key={substance._id} className="substance-box">
-              <Link className= "substance" to={`/learn/${substance._id}`}>
-                <div>
-                <h3>{substance.name}</h3>
-                <h4>Type: {substance.type}</h4>
-                <p>{substance.description}</p>
+              <Link className="substance" to={`/learn/${substance._id}`}>
+                <div className="card">
+                  <img
+                    className="substance-img"
+                    alt="profile"
+                    src={substance.img}
+                  />
+                  <h3>{substance.name}</h3>
+                  <h4>Type: {substance.type}</h4>
                 </div>
               </Link>
             </div>

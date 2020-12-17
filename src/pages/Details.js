@@ -62,20 +62,32 @@ class Details extends Component {
 
     axios
       .delete(`${process.env.REACT_APP_API_URL}/api/experience/${id}`)
-      .then(() => this.props.history.push("/experience")) // causes Router URL change
+      .then(() => this.props.history.push("/history")) // causes Router URL change
       .catch((err) => console.log(err));
   };
 
   render() {
+    const {
+      substance,
+      emotionStatus,
+      moodStatus,
+      eatStatus,
+      intention,
+      userexperience,
+    } = this.state;
     return (
-      <div>
+      <div className="siempre">
         <h1> Experience Details </h1>
-        <h2>{this.state.substance.name}</h2>
+        <div className="user-info">
+          <h4>Substance: {substance.name}</h4>
+          <h4>I was feeling: {emotionStatus} than usual</h4>
+          <h4>My mood was: {moodStatus}</h4>
+          <h4>I had my belly: {eatStatus}</h4>
+          <h4>My intention was: {intention}</h4>
+          <h4>My frequency using was: {userexperience}</h4>
+        </div>
 
-        {/* poner el resto de detalles de la experiencia */}
-        <Link to={"/experience/history"}>
-          <button onClick={this.deleteExperienece}>Delete Experience</button>
-        </Link>
+        <button onClick={this.deleteExperienece}>Delete Experience</button>
       </div>
     );
   }

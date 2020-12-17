@@ -35,23 +35,31 @@ class Start extends Component {
     const { id } = this.props.match.params;
     const { substance, emotionStatus, moodStatus, userexperience } = this.state;
     return (
-      <div>
-        <h2>Selected substance: {substance.name}</h2>
-        <h3>Warnings!!:</h3>
+      <div className="siempre">
+        <h1>Substance: {substance.name}</h1>
         
-        <h3>
-          After having analyzed your answers and your personal data, from
-          Safe-Use we recommend the following:
-        </h3>
-        <h3>Never take more than this dose:</h3>
+        <h3>Warnings!!:</h3>
+
         <p>
           Before starting, if you have not visited it previously, we advise you
           to go to the
         </p>
-        <Link to={`/learn`}>Learn Page</Link>
-        <br />
-        <br />
-        <Link to={`/experience/track/${id}`}>START</Link>
+        <Link to={`/learn`}>
+          <h4>Learn Page</h4>
+        </Link>
+        <h3>
+          Analizyng your answers and your personal data, from Safe-Use we
+          recommend the following
+        </h3>
+        <p>you should take this dose:</p>
+        <h3>{substance.dose} </h3>
+        <p>Never take more than this dose: {substance.maxdose}</p>
+        <h3>{substance.maxdose}</h3>
+        <h3>Are you sure you want to continue with the experience?</h3>
+
+        <Link to={`/experience/track/${id}`}>
+          <button>START</button>
+        </Link>
       </div>
     );
   }

@@ -3,7 +3,6 @@ import { withAuth } from "./../lib/Auth";
 import axios from "axios";
 import ReactStopwatch from "react-stopwatch";
 
-
 class Track extends Component {
   state = {
     addedSubstances: [],
@@ -30,6 +29,7 @@ class Track extends Component {
   render() {
     return (
       <div>
+        <h1>Tracking Experience</h1>
         <ReactStopwatch
           seconds={0}
           minutes={0}
@@ -46,8 +46,6 @@ class Track extends Component {
             );
           }}
         />
-        <h1>Track Page</h1>
-        <h1>Welcome {this.props.user.username}</h1>
 
         {this.state.notes.map((note) => {
           return (
@@ -57,6 +55,9 @@ class Track extends Component {
           );
         })}
         <input type="submit" value="FINISH"></input>
+        <h3>How are you feeling?</h3>
+        <p>If you are having a challenging experience try the emergency call and contact with the nearest hospital</p>
+        <button>EMERGENCY CALL</button>
       </div>
     );
   }

@@ -29,11 +29,14 @@ class Substance extends Component {
   render() {
     console.log("props ------- ", this.props)
     return (
-      <div>
+      <div className="siempre">
         <h1>{this.state.name}</h1>
-        <h1>{this.state.type}</h1>
+        <div className="substance-card">
         <h4>{this.state.description}</h4>
         <p>{this.state.information}</p>
+        <p>{this.state.information}</p>
+
+        </div>
       </div>
     );
   }

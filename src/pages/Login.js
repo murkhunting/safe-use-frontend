@@ -35,8 +35,6 @@ class Login extends Component {
             value={email}
             onChange={this.handleChange}
           />
-          <br />
-          <br />
 
           <label>Password:</label>
           <input
@@ -45,12 +43,12 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <br />
-          <br />
 
           <input type="submit" value="Login" />
           <p>if you don't have an account yet</p>
-          <Link to={"/signup"}> Sign up</Link>
+          <Link to={"/signup"}>
+            <h4>Sign up</h4>
+          </Link>
         </form>
       </div>
     );

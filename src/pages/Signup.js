@@ -51,16 +51,9 @@ class Signup extends Component {
   };
 
   render() {
-    const {
-      username,
-      password,
-      email,
-      phoneNumber,
-      weight,
-      age,
-    } = this.state;
+    const { username, password, email, phoneNumber, weight, age } = this.state;
     return (
-      <div>
+      <div className="siempre">
         <h1>Sign Up</h1>
 
         <form onSubmit={this.handleFormSubmit}>
@@ -118,7 +111,9 @@ class Signup extends Component {
         </form>
 
         <p>Already have an account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/login"}>
+          <h4>Login</h4>
+        </Link>
       </div>
     );
   }

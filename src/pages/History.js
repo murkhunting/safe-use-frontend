@@ -27,8 +27,14 @@ class History extends Component {
           {listOfExperiences.map((experience) => (
             <div key={experience._id} className="experience">
               <Link to={`/experience/${experience._id}`}>
-                <h3>{experience.substance && experience.substance.name}</h3>
-                <h4>{experience.date}</h4>
+                <div className="card">
+                  <h3>{experience.substance && experience.substance.name} - 17/12/2020</h3>
+                  <img
+                    className="history-img"
+                    alt="profile"
+                    src={experience.substance.img}
+                  />
+                </div>
               </Link>
             </div>
           ))}
